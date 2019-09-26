@@ -55,3 +55,71 @@ spec:
 
 </p>
 </details>
+
+### List all the taints key present on all nodes use jsonpath
+
+<details><summary>Answer</summary>
+<p>
+
+```bash
+kubectl get node -o jsonpath='{.items[*].spec.taints[*].key}'
+```
+
+</p>
+</details>
+
+### Taint a node node01 with key=env and value=prod, effect=NoSchedule
+
+<details><summary>Answer</summary>
+<p>
+
+```bash
+kubectl taint nodes node1 env=prod:NoSchedule
+```
+
+</p>
+</details>
+
+### Create a pod nagesh with image=nginx. It will not be scheduled on node01.
+
+<details><summary>Answer</summary>
+<p>
+
+```bash
+kubectl run nagesh --image=nginx --restart=Never 
+```
+
+</p>
+</details>
+
+### Update the pod nagesh with tolerence to the taint we have added earlier. It will be scheduled on node01.
+
+<details><summary>Answer</summary>
+<p>
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nagesh
+  name: nagesh
+spec:
+  containers:
+  - image: nginx
+    name: nagesh
+    resources: {}
+  dnsPolicy: ClusterFirst
+  tolerations:
+  - key: "env"
+    operator: "Equal"
+    value: "prod"
+    effect: "NoSchedule"
+  restartPolicy: Never
+status: {}
+
+```
+
+</p>
+</details>
