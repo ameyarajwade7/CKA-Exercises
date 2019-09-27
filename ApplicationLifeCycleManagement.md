@@ -9,7 +9,7 @@ Use [KATAKODA](https://www.katacoda.com/courses/kubernetes/playground) for all t
 <p>
 
 ```bash
-kubectl run apple --image=nginx --replicas=3
+kubectl run apple --image=nginx --replicas=2
 ```
 
 </p>
