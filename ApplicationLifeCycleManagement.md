@@ -52,7 +52,7 @@ kubectl set image deploy mangesh mangesh=nginx:alpine --record=true
 </p>
 </details>
 
-### Label mangesh deployment as env=prod and make sure tour action is recored
+### Label mangesh deployment as env=prod and make sure your action is recored
 
 <details><summary>Answer</summary>
 <p>
