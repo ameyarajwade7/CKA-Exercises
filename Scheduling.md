@@ -80,19 +80,19 @@ kubectl taint nodes node1 env=prod:NoSchedule
 </p>
 </details>
 
-### Create a pod nagesh with image=nginx. It will not be scheduled on node01.
+### Create a pod mango with image=nginx. It will not be scheduled on node01.
 
 <details><summary>Answer</summary>
 <p>
 
 ```bash
-kubectl run nagesh --image=nginx --restart=Never 
+kubectl run mango --image=nginx --restart=Never 
 ```
 
 </p>
 </details>
 
-### Update the pod nagesh with tolerence to the taint we have added earlier. It will be scheduled on node01.
+### Update the pod mango with tolerence to the taint we have added earlier. It will be scheduled on node01.
 
 <details><summary>Answer</summary>
 <p>
@@ -103,12 +103,12 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: nagesh
-  name: nagesh
+    run: mango
+  name: mango
 spec:
   containers:
   - image: nginx
-    name: nagesh
+    name: mango
     resources: {}
   dnsPolicy: ClusterFirst
   tolerations:
